@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hokkaido Snow Trip · Nov 23–30, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0d2238; --night2:#163454; --ice:#7cc3e8; --ice2:#d8eef9; --snow:#f7fbfe;
+  --red:#d9443b; --gold:#ffcf5c; --ink:#1b2a3a; --muted:#5d7085; --line:#dbe6ef;
+  --green:#2f9e6b; --amber:#d98a1c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--snow);line-height:1.5}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em}
+a{color:#1f6fa8}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(180deg,#081a2c 0%,#12304f 55%,#2b5679 100%);min-height:520px}
+#snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .mtn{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:220px}
+.hero-inner{position:relative;z-index:2;padding:64px 20px 170px;max-width:1080px;margin:0 auto}
+.kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:rgba(255,207,92,.12);border:1px solid rgba(255,207,92,.35);padding:5px 12px;border-radius:99px}
+.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.02;margin:18px 0 12px;font-weight:800}
+.hero h1 span{color:var(--ice)}
+.hero p.sub{font-size:18px;opacity:.9;max-width:620px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:99px;font-size:14px}
+.countdown{display:flex;gap:10px;margin-top:26px}
+.cd{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:10px 14px;text-align:center;min-width:72px}
+.cd b{display:block;font-family:Fraunces,serif;font-size:30px;line-height:1}
+.cd small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+
+nav.tabs{position:sticky;top:0;z-index:20;background:rgba(247,251,254,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+nav.tabs a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:7px 12px;border-radius:99px}
+nav.tabs a:hover{background:var(--ice2)}
+
+section{padding:56px 0 8px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h h2{font-size:32px}
+.sec-h p{color:var(--muted)}
+
+/* glance table */
+.glance{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(13,34,56,.06)}
+.glance-head{background:linear-gradient(90deg,var(--night),var(--night2));color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.glance-head h3{font-size:20px}
+.glance-head span{font-size:13px;opacity:.8}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#f3f8fc;padding:10px 14px;border-bottom:1px solid var(--line)}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.date{font-weight:700;white-space:nowrap}
+td.date small{display:block;font-weight:500;color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.st{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-top:4px}
+.st.ok{background:#e3f5ec;color:var(--green)}
+.st.todo{background:#fdf0dc;color:var(--amber)}
+
+/* map */
+.mapcard{background:linear-gradient(180deg,#eaf5fc,#fff);border:1px solid var(--line);border-radius:18px;padding:12px;display:grid;grid-template-columns:1.5fr 1fr;gap:12px}
+.mapcard svg{width:100%;height:auto;display:block}
+.legend{padding:12px}
+.legend h3{font-size:20px;margin-bottom:10px}
+.legend li{list-style:none;display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.legend li:last-child{border:none}
+.legend .sw{flex:none;width:26px;height:6px;border-radius:3px;margin-top:8px}
+.drive{margin-top:12px;background:var(--night);color:#fff;border-radius:14px;padding:14px}
+.drive h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:8px}
+.bar{display:flex;align-items:center;gap:8px;font-size:13px;margin:5px 0}
+.bar i{display:block;height:8px;border-radius:4px;background:var(--ice)}
+.bar span{white-space:nowrap}.bar span:first-child{width:52px;flex:none;opacity:.8}
+
+/* days */
+.days{display:grid;gap:22px}
+.day{display:grid;grid-template-columns:380px 1fr;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 6px 24px rgba(13,34,56,.05)}
+.day .art{position:relative;background:var(--night)}
+.day .art svg{display:block;width:100%;height:100%;min-height:230px}
+.day .badge{position:absolute;top:14px;left:14px;background:#fff;border-radius:14px;padding:8px 12px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.day .badge b{display:block;font-family:Fraunces,serif;font-size:28px;line-height:1}
+.day .badge small{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.day .body{padding:22px 24px}
+.day .where{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.day h3{font-size:24px;margin:4px 0 12px}
+.tl{list-style:none;border-left:2px solid var(--line);margin-left:6px}
+.tl li{position:relative;padding:0 0 10px 18px;font-size:14.5px}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--ice)}
+.tl li b{font-variant-numeric:tabular-nums}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pill{font-size:13px;background:#f3f8fc;border:1px solid var(--line);border-radius:99px;padding:5px 11px;text-decoration:none;color:var(--ink)}
+.pill.stay{background:#fff6e6;border-color:#f3dcae}
+.pill.map{background:#e8f3fb;border-color:#c5e1f3;color:#1f6fa8;font-weight:600}
+.note{margin-top:10px;font-size:13px;color:var(--muted);background:#f7f9fb;border-radius:10px;padding:8px 10px}
+
+.stops{list-style:none;margin:4px 0 0}
+.stops li{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:10px 0;border-top:1px dashed var(--line)}
+.stops li:first-child{border-top:none}
+.stops .tm{font-weight:700;font-variant-numeric:tabular-nums;color:var(--night);background:#eef5fb;border-radius:8px;text-align:center;padding:3px 0;height:fit-content;font-size:14px}
+.stops .sc b{font-size:15px}
+.stops .sc p{font-size:13.5px;color:#3d4f62;margin-top:3px}
+.stops .sc p.how{color:#1f6fa8;font-weight:500}
+.stops .btns{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.stops .btns a{font-size:12.5px;text-decoration:none;font-weight:600;background:#e8f3fb;border:1px solid #c5e1f3;color:#1f6fa8;padding:3px 10px;border-radius:99px}
+.day{align-items:start}
+.day .art{position:sticky;top:60px;height:300px}
+.day .art svg{height:300px}
+/* stays */
+.stays{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stay-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.stay-card svg{display:block;width:100%;height:130px}
+.stay-card .in{padding:14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.stay-card .nights{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.stay-card h3{font-size:18px;line-height:1.2}
+.stay-card p{font-size:13.5px;color:var(--muted)}
+.stay-card .price{font-weight:700;font-size:15px;color:var(--ink)}
+.stay-card a.btn{margin-top:auto;text-align:center;text-decoration:none;font-weight:600;font-size:14px;background:var(--night);color:#fff;padding:9px;border-radius:10px}
+
+/* tips */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tip{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+.tip .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;margin-bottom:10px}
+.tip h3{font-size:18px;margin-bottom:6px}
+.tip li{font-size:14px;margin:4px 0 4px 18px}
+.flights{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.flight{background:linear-gradient(135deg,var(--night),#24507a);color:#fff;border-radius:18px;padding:18px 20px}
+.flight .row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.flight .code{font-family:Fraunces,serif;font-size:34px;font-weight:800}
+.flight .plane{flex:1;border-top:2px dashed rgba(255,255,255,.4);margin:0 14px;position:relative}
+.flight .plane::after{content:"✈";position:absolute;left:50%;top:-14px;transform:translateX(-50%);font-size:18px}
+.flight small{opacity:.75}
+footer{padding:50px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+
+@media (max-width:860px){
+  .day .art{position:relative;top:0;height:200px}.day .art svg{height:200px}
+  .mapcard{grid-template-columns:1fr}
+  .day{grid-template-columns:1fr}
+  .day .art svg{min-height:190px}
+  .stays{grid-template-columns:1fr 1fr}
+  .tips{grid-template-columns:1fr}
+  .flights{grid-template-columns:1fr}
+  .glance td:nth-child(3){min-width:200px}
+  .glance .scroll{overflow-x:auto}
+}
+@media (max-width:520px){.stays{grid-template-columns:1fr}.hero-inner{padding-top:44px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="snow"></canvas>
+  <div class="hero-inner">
+    <span class="kicker">Hokkaido, Japan · Nov 23–30, 2026</span>
+    <h1>Our <span>Snow</span> Road Trip</h1>
+    <p class="sub">Two days in Sapporo and Otaru, then five days driving through Furano, Biei and Noboribetsu, ending near New Chitose for an easy flight home.</p>
+    <div class="chips">
+      <span class="chip">❄️ Mary Rose</span><span class="chip">❄️ Kenn</span><span class="chip">❄️ Justine</span>
+      <span class="chip">🚐 Vincent (driver)</span><span class="chip">❄️ Hitomi</span>
+    </div>
+    <div class="countdown" id="countdown"></div>
+  </div>
+  <svg class="mtn" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 150 L120 80 L210 130 L330 40 L430 120 L520 70 L640 140 L760 50 L880 120 L980 70 L1100 130 L1200 90 L1200 220 L0 220Z" fill="#3c6a91" opacity=".55"/>
+    <path d="M330 40 L300 70 L318 66 L330 78 L345 64 L362 70Z M760 50 L732 78 L750 72 L762 84 L778 70 L792 76Z" fill="#fff" opacity=".85"/>
+    <path d="M0 175 L150 120 L280 165 L420 110 L560 170 L700 120 L860 172 L1000 118 L1200 165 L1200 220 L0 220Z" fill="#dcecf7"/>
+    <path d="M0 200 Q300 170 600 195 T1200 190 L1200 220 L0 220Z" fill="#f7fbfe"/>
+  </svg>
+</header>
+
+<nav class="tabs"><div class="wrap">
+  <a href="#glance">At a glance</a><a href="#route">Route map</a><a href="#days">Day by day</a><a href="#stays">Stays</a><a href="#flights">Flights</a><a href="#tips">Tips</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="glance">
+  <div class="sec-h"><h2>The plan at a glance</h2><p>Screenshot this one for the group chat 📸</p></div>
+  <div class="glance">
+    <div class="glance-head"><h3>Hokkaido · Nov 23–30, 2026</h3><span>5 travelers · rental minivan from Nov 25</span></div>
+    <div class="scroll"><table id="glanceTable">
+      <thead><tr><th>Date</th><th>Where</th><th>Activities</th><th>Stay</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="route">
+  <div class="sec-h"><h2>Route map</h2><p>Sapporo by train, then a loop by car</p></div>
+  <div class="mapcard">
+    <svg id="map" viewBox="0 0 640 480" role="img" aria-label="Map of Hokkaido with the trip route"></svg>
+    <div class="legend">
+      <h3>Legs</h3>
+      <ul id="legend"></ul>
+      <div class="drive">
+        <h4>Driving time per day (approx.)</h4>
+        <div id="drivebars"></div>
+        <p style="font-size:12px;opacity:.7;margin-top:6px">Google Maps times in normal traffic. Add about 30% if it's snowing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="days">
+  <div class="sec-h"><h2>Day by day</h2><p>Sunset is around 4:00 PM, so most driving is in daylight</p></div>
+  <div class="days" id="dayList"></div>
+</section>
+
+<section id="stays">
+  <div class="sec-h"><h2>Where we're staying</h2><p>4 bases, 7 nights</p></div>
+  <div class="stays" id="stayList"></div>
+</section>
+
+<section id="flights">
+  <div class="sec-h"><h2>Flights</h2><p>Times are local</p></div>
+  <div class="flights">
+    <div class="flight">
+      <small>Mary Rose · Kenn · Justine</small>
+      <div class="row"><div><div class="code">MNL</div><small>Mon Nov 23 · 06:35</small></div><div class="plane"></div><div style="text-align:right"><div class="code">CTS</div><small>12:30</small></div></div>
+      <div class="row" style="margin-top:14px"><div><div class="code">CTS</div><small>Mon Nov 30 · 13:30</small></div><div class="plane"></div><div style="text-align:right"><div class="code">MNL</div><small>18:40</small></div></div>
+      <p style="margin-top:12px;font-size:13px;opacity:.8">Philippine Airlines PR406 out · PR405 back (International Terminal)</p>
+    </div>
+    <div class="flight" style="background:linear-gradient(135deg,#7a2a2a,#c0473d)">
+      <small>Vincent · Hitomi</small>
+      <div class="row"><div><div class="code">TYO</div><small>Wed Nov 25 · 08:50</small></div><div class="plane"></div><div style="text-align:right"><div class="code">CTS</div><small>10:40</small></div></div>
+      <div class="row" style="margin-top:14px"><div><div class="code">CTS</div><small>Mon Nov 30 · 12:00</small></div><div class="plane"></div><div style="text-align:right"><div class="code">TYO</div><small>13:50</small></div></div>
+      <p style="margin-top:12px;font-size:13px;opacity:.8">Domestic Terminal · we meet them at arrivals on Nov 25</p>
+    </div>
+  </div>
+</section>
+
+<section id="tips">
+  <div class="sec-h"><h2>Good to know</h2><p>Snow, driving and packing</p></div>
+  <div class="tips">
+    <div class="tip"><div class="ic" style="background:#e8f3fb">🧥</div><h3>Pack for the cold</h3><ul>
+      <li>Furano and Biei: about −2°C by day, down to −9°C at night</li>
+      <li>Thermal layers, a waterproof jacket, gloves and a beanie</li>
+      <li>Shoes with good grip, or slip-on cleats for icy paths</li></ul></div>
+    <div class="tip"><div class="ic" style="background:#fff3e0">🚐</div><h3>Driving</h3><ul>
+      <li><b>Not booked yet:</b> 4WD minivan for 5 with winter tires and an ETC card, Nov 25–30, picked up and returned at New Chitose. Mary Rose and Kenn will sort it out on Nov 23.</li>
+      <li>Bring each driver's international driving permit and passport</li>
+      <li>Watch for black ice in the mornings. Aim to arrive before dark.</li></ul></div>
+    <div class="tip"><div class="ic" style="background:#fde8e6">🎿</div><h3>Snow and closures</h3><ul>
+      <li>Furano Ski Resort opens Nov 28 with only a few runs. Tubing parks mostly open in late December, so bring your own cheap sleds.</li>
+      <li>The Asahidake ropeway is closed Nov 16 – Dec 10</li>
+      <li>Check the light-up dates for Ningle Terrace and the Blue Pond before you go</li></ul></div>
+  </div>
+</section>
+
+</main>
+<footer>Made for the Hokkaido gang · drawn illustrations, not photos · plan as of Nov 18, 2026</footer>
+
+<script>
+/* ---------- data ---------- */
+const COLORS={train:"#7c5cc4",d25:"#d9443b",d26:"#e08a1c",d27:"#2f9e6b",d28:"#1f6fa8",d29:"#c23f86",d30:"#5d7085"};
+const STAYS={
+  kabuto:{name:"Residence Hotel KABUTO",area:"Sapporo (Susukino)",nights:"Nov 23 – 25 · 2 nights",status:"ok",statusText:"Booked",detail:"Near the subway, so it's easy to get around Sapporo by train.",price:"",scene:"stayCity"},
+  furano:{name:"Furano Sky White",area:"Wakamatsuchō, Furano",nights:"Nov 25 – 28 · 3 nights",status:"ok",statusText:"Booked",detail:"Entire home hosted by BreakOut. Check-in after 3:00 PM, checkout by 10:00 AM.",price:"",scene:"stayCabin"},
+  nobo:{name:"Green House (Noboribetsu)",area:"Noboribetsu Honchō, near JR Noboribetsu Station",nights:"Nov 28 – 29 · 1 night",status:"ok",statusText:"Booked (Agoda)",detail:"Check-in after 4:00 PM, checkout by 10:00 AM. Two-bedroom apartment (2 doubles + 3 futons), full kitchen, washer and gas dryer, free parking. Paid ₱8,042; a small city tax may be collected at check-in. About 15 min drive to Noboribetsu Onsen.",price:"₱8,042 paid",scene:"stayCabin"},
+  chitose:{name:"Minn Chitose or Airbnb aparthotel",area:"Chitose, near New Chitose Airport",nights:"Nov 29 – 30 · 1 night",status:"todo",statusText:"To book",detail:"Top picks: Minn Chitose (₱5,577, Booking.com 8.8 from 2,262 reviews) or the Airbnb aparthotel 5 min from the airport (₱5,474, 4.79 from 240 reviews, free cancellation).",price:"about ₱5,500 / night",link:"https://www.booking.com/hotel/jp/minn-chitose.html?checkin=2026-11-29&checkout=2026-11-30&group_adults=5&selected_currency=PHP",scene:"stayCity2"}
+};
+/* stop: {t,title,info,place,how,dir:[from,to,mode]} — mode: driving | transit | walking */
+const DAYS=[
+ {d:"23",dow:"Mon",color:COLORS.train,where:"New Chitose → Sapporo",title:"Arrive and see Sapporo at night",scene:"city",stay:"kabuto",drive:0,
+  short:"Land 12:30, sort out the rental car at the airport, Kobo Artista toy shop, Odori Park & TV Tower, Tanukikoji, Susukino dinner",
+  stops:[
+  {t:"12:30",title:"Land at New Chitose Airport (PR406)",info:"Immigration, baggage and customs take about 45–60 minutes. Buy or top up an IC card (Kitaca or Suica) at the JR ticket machines for trains and subways.",place:"New Chitose Airport International Terminal"},
+  {t:"13:30",title:"Mary Rose and Kenn: sort out the rental car",info:"The car isn't booked yet. Go to the rental counters at the Domestic Terminal arrivals hall (about a 10-minute indoor walk from International) and book a 4WD minivan for 5 with winter tires and an ETC card, picked up Nov 25 about 11:30 and returned Nov 30 by 10:00 at New Chitose. Bring passports and international driving permits; Vincent is the main driver. If the counters can't hold it, book online that evening.",place:"New Chitose Airport Domestic Terminal rental car counters",how:"Walk through the connecting corridor, about 10 min"},
+  {t:"14:30",title:"JR Rapid Airport to Sapporo",info:"Trains leave about every 12 minutes from the station under the Domestic Terminal.",place:"New Chitose Airport Station",how:"🚆 JR Rapid Airport, New Chitose Airport → Sapporo, about 37 min",dir:["New Chitose Airport Station","Sapporo Station","transit"]},
+  {t:"15:15",title:"Subway to Susukino, then check in",info:"Check in at Residence Hotel KABUTO and rest.",place:"Residence Hotel KABUTO Sapporo",how:"🚇 Namboku Line, Sapporo → Susukino (2 stops, about 3 min), then walk",dir:["Sapporo Station","Residence Hotel KABUTO Sapporo","transit"]},
+  {t:"15:45",title:"Kobo Artista (toy and character shop)",info:"Hokkaido mascot and character goods; rated 4.4 on Google. Open 10:00 AM – 5:30 PM, closed Wednesdays. Nov 23 is a Japanese holiday, so hours might differ.",place:"工房アルティスタ 札幌市中央区南2条東2丁目16 堀尾ビル",how:"🚶 Walk from Susukino, about 15 min (near Nijo Market)",dir:["Residence Hotel KABUTO Sapporo","工房アルティスタ 札幌市中央区南2条東2丁目16","walking"]},
+  {t:"16:45",title:"Odori Park and Sapporo TV Tower",info:"Walk the park as the lights come on. The Sapporo White Illumination usually starts in late November, so check this year's dates.",place:"Sapporo TV Tower",how:"🚶 Walk from Kobo Artista, about 7 min",dir:["工房アルティスタ 札幌市中央区南2条東2丁目16","Sapporo TV Tower","walking"]},
+  {t:"18:00",title:"Shopping on Tanukikoji",info:"Covered shopping arcade: Don Quijote, drugstores, souvenir and thrift shops. Dry even if it rains.",place:"Tanukikoji Shopping Street Sapporo",how:"🚶 Walk from Odori Park, about 5 min",dir:["Sapporo TV Tower","Tanukikoji Shopping Street Sapporo","walking"]},
+  {t:"19:30",title:"Dinner in Susukino",info:"Jingisukan (grilled lamb), soup curry, or ramen at Ganso Ramen Yokocho. Walk back to the hotel.",place:"Ganso Ramen Yokocho Susukino",how:"🚶 Walk, about 5 min",dir:["Tanukikoji Shopping Street Sapporo","Ganso Ramen Yokocho Susukino","walking"]}],
+  map:"https://www.google.com/maps/dir/New+Chitose+Airport/Residence+Hotel+KABUTO+Sapporo/Sapporo+TV+Tower/Tanukikoji+Shopping+Street"},
+ {d:"24",dow:"Tue",color:COLORS.train,where:"Sapporo · Otaru",title:"Chocolate factory and Otaru canal",scene:"canal",stay:"kabuto",drive:0,
+  short:"Shiroi Koibito Park, Otaru Sankaku Market lunch, Sakaimachi St, Music Box Museum, canal at dusk",
+  stops:[
+  {t:"09:15",title:"Subway to Shiroi Koibito Park",info:"Rain is forecast, so this day stays mostly indoors.",place:"Miyanosawa Station",how:"🚇 Namboku Line to Odori, change to the Tozai Line to Miyanosawa (about 25 min), then walk 7 min",dir:["Residence Hotel KABUTO Sapporo","Shiroi Koibito Park","transit"]},
+  {t:"10:00",title:"Shiroi Koibito Park",info:"The chocolate factory: factory tour, cookie decorating, café and shop. The paid area is about ¥1,200.",place:"Shiroi Koibito Park"},
+  {t:"12:00",title:"Head to Otaru",info:"Ride the Tozai Line back to Sapporo Station (via Odori), then the JR rapid train to Otaru.",place:"Otaru Station",how:"🚇 Tozai + Namboku Line to Sapporo (about 25 min), then 🚆 JR Rapid to Otaru (about 35 min)",dir:["Shiroi Koibito Park","Otaru Station","transit"]},
+  {t:"13:15",title:"Seafood lunch at Sankaku Market",info:"Kaisendon (seafood rice bowls) and crab, right beside Otaru Station.",place:"Sankaku Market Otaru",how:"🚶 Walk, 1 min from Otaru Station",dir:["Otaru Station","Sankaku Market Otaru","walking"]},
+  {t:"14:15",title:"Sakaimachi Street",info:"Kitaichi Glass, LeTAO main shop (try the double fromage), sweets and souvenir shops.",place:"Sakaimachi Street Otaru",how:"🚶 Walk downhill, about 15 min",dir:["Sankaku Market Otaru","Sakaimachi Street Otaru","walking"]},
+  {t:"15:30",title:"Otaru Music Box Museum",info:"At the Märchen crossroads at the end of Sakaimachi Street; look for the steam clock outside.",place:"Otaru Music Box Museum",how:"🚶 Walk, about 5 min",dir:["Sakaimachi Street Otaru","Otaru Music Box Museum","walking"]},
+  {t:"16:15",title:"Otaru Canal at dusk",info:"The gas lamps light up around sunset (about 4:00 PM). Best photos from Asakusa Bridge.",place:"Asakusabashi Otaru Canal",how:"🚶 Walk, about 15 min",dir:["Otaru Music Box Museum","Asakusabashi Otaru Canal","walking"]},
+  {t:"17:30",title:"Back to Sapporo for dinner",info:"Dinner near Sapporo Station or back in Susukino. Pack tonight: you check out early tomorrow.",place:"Sapporo Station",how:"🚆 JR Rapid, Otaru → Sapporo, about 35 min",dir:["Otaru Station","Sapporo Station","transit"]}],
+  map:"https://www.google.com/maps/dir/Residence+Hotel+KABUTO+Sapporo/Shiroi+Koibito+Park/Otaru+Station/Otaru+Music+Box+Museum/Otaru+Canal"},
+ {d:"25",dow:"Wed",color:COLORS.d25,where:"Airport → Furano",title:"Vincent and Hitomi arrive, then the road trip starts",scene:"road",stay:"furano",drive:2.25,
+  short:"Meet V&H, pick up the minivan, drive to Furano, Ningle Terrace light-up, omu-curry",
+  stops:[
+  {t:"09:00",title:"Check out and go to the airport",info:"",place:"Residence Hotel KABUTO Sapporo",how:"🚇 Namboku Line to Sapporo, then 🚆 JR Rapid Airport to New Chitose (about 45 min total)",dir:["Residence Hotel KABUTO Sapporo","New Chitose Airport","transit"]},
+  {t:"10:40",title:"Meet Vincent and Hitomi",info:"Their flight from Tokyo lands at 10:40 at the Domestic Terminal arrivals hall.",place:"New Chitose Airport Domestic Terminal"},
+  {t:"11:00",title:"Lunch at Hokkaido Ramen Dojo",info:"Ramen from all over Hokkaido, on the Domestic Terminal 3rd floor.",place:"Hokkaido Ramen Dojo New Chitose Airport"},
+  {t:"12:00",title:"Pick up the rental minivan",info:"(Book this on Nov 23 if not done yet.) Go to the counter of the company you booked; a free shuttle takes you to its office (about 10 min). Check: 4WD, winter tires, ETC card, Japanese–English navigation set to Furano.",place:"New Chitose Airport Domestic Terminal rental car counters"},
+  {t:"12:45",title:"Drive to Furano",info:"Doo Expressway, then Doto Expressway to Shimukappu IC, then Route 237. Stop at a rest area halfway. Snow is possible, so allow 3 hours and try to arrive before dark (sunset about 4:00 PM).",place:"Furano",how:"🚐 About 2 hr 15 min, 130 km",dir:["New Chitose Airport","Furano Station","driving"]},
+  {t:"15:30",title:"Check in at Furano Sky White",info:"Check-in after 3:00 PM. Buy groceries for breakfasts at a supermarket in Furano town.",place:"1-10 Wakamatsucho Furano Hokkaido"},
+  {t:"17:30",title:"Ningle Terrace light-up",info:"Little wooden craft shops lit up in the forest beside Shin Furano Prince Hotel. Free to walk around.",place:"Ningle Terrace",how:"🚐 About 10 min",dir:["Furano Station","Ningle Terrace","driving"]},
+  {t:"19:00",title:"Omu-curry dinner in Furano town",info:"Furano's local dish: omelette rice with curry. Then home.",place:"Furano omu curry",how:"🚐 About 10 min",dir:["Ningle Terrace","Furano Station","driving"]}],
+  map:"https://www.google.com/maps/dir/New+Chitose+Airport/Furano+Station/Ningle+Terrace"},
+ {d:"26",dow:"Thu",color:COLORS.d26,where:"Furano · Biei",title:"Christmas Tree and the Blue Pond light-up",scene:"tree",stay:"furano",drive:1.75,
+  short:"Buy sleds, Furano Cheese Factory, Biei Christmas Tree & Patchwork Road, Blue Pond light-up",
+  stops:[
+  {t:"09:00",title:"Buy cheap plastic sleds",info:"About ¥1,000–2,000 each at a supermarket or home center in Furano town. You'll use them tomorrow at Tokachidake.",place:"home center Furano"},
+  {t:"09:30",title:"Furano Cheese Factory",info:"Free tasting, cheese and milk ice cream. This is your milk-factory stop.",place:"Furano Cheese Factory",how:"🚐 About 10 min",dir:["Furano Station","Furano Cheese Factory","driving"]},
+  {t:"11:00",title:"Biei: Christmas Tree and Patchwork Road",info:"The lone Christmas Tree, the Ken & Mary Tree and the Patchwork Road hills. Take photos from the road: the fields are private farmland, so don't walk into them.",place:"Christmas Tree Biei",how:"🚐 About 45 min north on Route 237",dir:["Furano Cheese Factory","Christmas Tree Biei","driving"]},
+  {t:"12:30",title:"Lunch in Biei town",info:"Cafés and restaurants around JR Biei Station.",place:"Biei Station",how:"🚐 About 10 min",dir:["Christmas Tree Biei","Biei Station","driving"]},
+  {t:"14:00",title:"Shirahige Waterfall",info:"Blue water falling into the Biei River; see it from the bridge.",place:"Shirahige Falls",how:"🚐 About 30 min",dir:["Biei Station","Shirahige Falls","driving"]},
+  {t:"15:00",title:"Shirogane Blue Pond and its light-up",info:"See it in daylight, then stay for the evening light-up (check the dates). Warm up in the car between.",place:"Shirogane Blue Pond",how:"🚐 About 5 min",dir:["Shirahige Falls","Shirogane Blue Pond","driving"]},
+  {t:"17:30",title:"Drive back to Furano",info:"Snow and sleet are forecast this afternoon, so drive slowly. Dinner in Furano.",place:"Furano Station",how:"🚐 About 50 min",dir:["Shirogane Blue Pond","Furano Station","driving"]}],
+  map:"https://www.google.com/maps/dir/Furano+Station/Furano+Cheese+Factory/Christmas+Tree+Biei/Shirogane+Blue+Pond/Furano+Station"},
+ {d:"27",dow:"Fri",color:COLORS.d27,where:"Tokachidake · Asahikawa",title:"Sledding at Tokachidake, ramen and shopping",scene:"onsen",stay:"furano",drive:2.5,
+  short:"Sledding and a day onsen at Tokachidake, Asahikawa Ramen Village, AEON, thrift and watch shops",
+  stops:[
+  {t:"09:00",title:"Drive up to Tokachidake Onsen",info:"About 1,280 m up and usually snowy. Sunny and clear is forecast.",place:"Tokachidake Onsen",how:"🚐 About 45 min via Kamifurano",dir:["Furano Station","Tokachidake Onsen","driving"]},
+  {t:"09:45",title:"Sledding and snow play",info:"Use your sleds on gentle, open slopes well away from the road and parking area. Stay off closed trails.",place:"Tokachidake Onsen"},
+  {t:"11:15",title:"Day onsen with mountain views",info:"Day bathing at one of the inns, such as Ryounkaku. Check day-bath hours before you go.",place:"Ryounkaku Tokachidake"},
+  {t:"12:30",title:"Drive to Asahikawa",info:"",place:"Asahikawa Ramen Village",how:"🚐 About 1 hr",dir:["Tokachidake Onsen","Asahikawa Ramen Village","driving"]},
+  {t:"13:30",title:"Lunch at Asahikawa Ramen Village",info:"Eight famous Asahikawa ramen shops under one roof. Try the shoyu ramen.",place:"Asahikawa Ramen Village"},
+  {t:"15:00",title:"Shopping in Asahikawa",info:"AEON Mall Asahikawa Ekimae by the station, plus thrift shops and watch stores nearby.",place:"AEON Mall Asahikawa Ekimae",how:"🚐 About 20 min",dir:["Asahikawa Ramen Village","AEON Mall Asahikawa Ekimae","driving"]},
+  {t:"17:30",title:"Drive back to Furano and pack",info:"Dinner in Furano. Pack tonight and keep one small overnight bag for Noboribetsu.",place:"Furano Station",how:"🚐 About 1 hr",dir:["AEON Mall Asahikawa Ekimae","Furano Station","driving"]}],
+  note:"The Asahidake ropeway is closed for maintenance Nov 16 – Dec 10.",
+  map:"https://www.google.com/maps/dir/Furano+Station/Tokachidake+Onsen/Asahikawa+Ramen+Village/AEON+Mall+Asahikawa+Ekimae/Furano+Station"},
+ {d:"28",dow:"Sat",color:COLORS.d28,where:"Furano → Noboribetsu",title:"Optional ski lesson, then the drive to Noboribetsu",scene:"ski",stay:"nobo",drive:3,
+  short:"Optional beginner ski lesson on Furano Ski Resort's opening day, then drive to Noboribetsu",
+  stops:[
+  {t:"09:30",title:"Check out of Furano Sky White",info:"Checkout by 10:00. Load the van.",place:"1-10 Wakamatsucho Furano Hokkaido"},
+  {t:"09:45",title:"Furano Ski Resort (opening day)",info:"Optional: Furano Snow School 2-hour English first-timer group at 10:00 (¥13,000, or ¥25,000 with rental; book ahead, free cancellation). Others can play in the snow or relax at Shin Furano Prince Hotel.",place:"Shin Furano Prince Hotel",how:"🚐 About 15 min",dir:["Furano Station","Shin Furano Prince Hotel","driving"]},
+  {t:"12:00",title:"Lunch at the resort",info:"Restaurants in Shin Furano Prince Hotel.",place:"Shin Furano Prince Hotel"},
+  {t:"13:00",title:"Drive to Noboribetsu",info:"Doto Expressway, then Doo Expressway south to Noboribetsu-Higashi IC. Stop at a rest area. Rain is forecast, with freezing rain at night, so aim to arrive before dark.",place:"Noboribetsu",how:"🚐 About 3 hr",dir:["Shin Furano Prince Hotel","Noboribetsu Station","driving"]},
+  {t:"16:30",title:"Check in at Green House",info:"Check-in after 4:00 PM. Message the host your arrival time beforehand.",place:"登別本町2-26-2 Noboribetsu Hokkaido"},
+  {t:"17:30",title:"Groceries, dinner and laundry",info:"Shops and restaurants near JR Noboribetsu Station. Use the washer and gas dryer.",place:"Noboribetsu Station",how:"🚶 About 10 min walk",dir:["登別本町2-26-2 Noboribetsu Hokkaido","Noboribetsu Station","walking"]}],
+  note:"Furano Ski Resort's opening depends on snow, and rain is forecast for Nov 28, so book a lesson you can cancel for free.",
+  map:"https://www.google.com/maps/dir/Shin+Furano+Prince+Hotel/JR+Noboribetsu+Station"},
+ {d:"29",dow:"Sun",color:COLORS.d29,where:"Noboribetsu → Chitose",title:"Hell Valley and a day onsen, then on to Chitose",scene:"hell",stay:"chitose",drive:1.25,
+  short:"Noboribetsu Jigokudani (Hell Valley), day onsen, drive to Chitose, Outlet Mall Rera",
+  stops:[
+  {t:"09:30",title:"Check out and drive to Noboribetsu Onsen",info:"Checkout by 10:00. Park at the Jigokudani parking lot (paid).",place:"Noboribetsu Jigokudani parking",how:"🚐 About 15 min uphill",dir:["Noboribetsu Station","Noboribetsu Jigokudani","driving"]},
+  {t:"10:00",title:"Jigokudani (Hell Valley)",info:"Boardwalk through the steaming volcanic valley, then the trail to Oyunuma, the hot pond (about 20 min walk each way, or drive).",place:"Noboribetsu Jigokudani"},
+  {t:"11:30",title:"Day onsen",info:"Day bathing at Dai-ichi Takimotokan, famous for its many hot spring pools. Bring a small towel or rent one.",place:"Dai-ichi Takimotokan",how:"🚶 About 5 min walk",dir:["Noboribetsu Jigokudani","Dai-ichi Takimotokan","walking"]},
+  {t:"13:00",title:"Lunch in the onsen town",info:"Gokuraku-dori, the main street, has noodle and curry shops (try the 'hell ramen').",place:"Gokuraku Dori Noboribetsu Onsen"},
+  {t:"14:00",title:"Drive to Chitose",info:"Doo Expressway north. Arrive before dark.",place:"Chitose",how:"🚐 About 1 hr",dir:["Noboribetsu Onsen","Chitose Station","driving"]},
+  {t:"15:15",title:"Check in at the Chitose stay",info:"Still to book: Minn Chitose or the Airbnb aparthotel.",place:"Minn Chitose"},
+  {t:"16:00",title:"Chitose Outlet Mall Rera",info:"Pasalubong, watches and outlet shopping. Dinner in Chitose, then pack for the flight.",place:"Chitose Outlet Mall Rera",how:"🚐 About 10 min",dir:["Chitose Station","Chitose Outlet Mall Rera","driving"]}],
+  map:"https://www.google.com/maps/dir/Noboribetsu+Station/Noboribetsu+Jigokudani/Chitose+Outlet+Mall+Rera"},
+ {d:"30",dow:"Mon",color:COLORS.d30,where:"New Chitose Airport",title:"Pasalubong run and fly home",scene:"plane",stay:null,drive:0.2,
+  short:"Return car by 10:00, Royce, Shiroi Koibito, LeTAO at the airport, flights home",
+  stops:[
+  {t:"08:30",title:"Check out and refuel",info:"Rental cars go back with a full tank: fill up at a gas station near the rental office and keep the receipt.",place:"gas station near New Chitose Airport"},
+  {t:"09:00",title:"Return the minivan",info:"Return by 10:00. The rental shuttle takes you to the terminal (about 10 min).",place:"New Chitose Airport Domestic Terminal"},
+  {t:"09:30",title:"Last pasalubong at the Domestic Terminal",info:"Royce Chocolate World, Shiroi Koibito, Kinotoya, LeTAO and more, all on the 2nd floor shopping area.",place:"Royce Chocolate World New Chitose Airport"},
+  {t:"11:00",title:"Say goodbye and check in",info:"Vincent and Hitomi check in at the Domestic Terminal. Everyone else walks to the International Terminal (about 10 min) to check in for PR405.",place:"New Chitose Airport International Terminal",how:"🚶 Connecting corridor, about 10 min",dir:["New Chitose Airport Domestic Terminal","New Chitose Airport International Terminal","walking"]},
+  {t:"12:00",title:"Vincent and Hitomi fly to Tokyo",info:"",place:"New Chitose Airport Domestic Terminal"},
+  {t:"13:30",title:"PR405 to Manila",info:"Arrives Manila 18:40.",place:"New Chitose Airport International Terminal"}],
+  map:"https://www.google.com/maps/search/New+Chitose+Airport"}
+];
+const gq=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const gd=([o,d,m])=>"https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(o)+"&destination="+encodeURIComponent(d)+"&travelmode="+m;
+
+/* ---------- scene illustrations (inline SVG) ---------- */
+let uid=0;
+function flakes(n,w,h){let s="";for(let i=0;i<n;i++){const x=(i*97)%w,y=(i*53)%h,r=1+(i%3)*.6;s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="#fff" opacity="${.5+(i%4)*.12}"/>`}return s}
+function sky(id,a,b){return `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="400" height="240" fill="url(#${id})"/>`}
+function stars(n){let s="";for(let i=0;i<n;i++)s+=`<circle cx="${(i*71)%400}" cy="${(i*37)%110}" r="${i%5?0.8:1.4}" fill="#fff" opacity=".8"/>`;return s}
+const SCENES={
+city(){const g="g"+uid++;let b="";const xs=[20,70,120,230,280,330];xs.forEach((x,i)=>{const h=70+(i*23)%60;b+=`<rect x="${x}" y="${190-h}" width="44" height="${h}" fill="#1d3b5c"/>`;for(let r=0;r<h/16-1;r++)for(let c=0;c<3;c++)if((r+c+i)%3)b+=`<rect x="${x+6+c*12}" y="${196-h+r*16}" width="7" height="8" fill="#ffcf5c" opacity=".85"/>`});
+ return sky(g,"#0a1c30","#2a4d72")+stars(40)+b+`<path d="M190 190 L200 50 L210 190Z" fill="#c9503f"/><rect x="186" y="95" width="28" height="10" fill="#ffcf5c"/><circle cx="200" cy="100" r="3" fill="#fff"/>`+`<rect y="188" width="400" height="52" fill="#e9f3fa"/>`+lights(30,175)+flakes(40,400,190)},
+canal(){const g="g"+uid++;let w="";[0,90,180,270].forEach((x,i)=>{w+=`<rect x="${x+10}" y="80" width="80" height="70" fill="${i%2?"#6b4a3a":"#7d5a45"}"/><path d="M${x+5} 82 L${x+50} 55 L${x+95} 82Z" fill="#f2f6fa"/><rect x="${x+25}" y="105" width="12" height="16" fill="#ffcf5c"/><rect x="${x+55}" y="105" width="12" height="16" fill="#ffcf5c"/>`});
+ let lamps="";for(let i=0;i<5;i++){const x=30+i*85;lamps+=`<rect x="${x}" y="140" width="3" height="40" fill="#222"/><circle cx="${x+1.5}" cy="138" r="7" fill="#ffcf5c"/><circle cx="${x+1.5}" cy="138" r="16" fill="#ffcf5c" opacity=".2"/>`}
+ return sky(g,"#2b3f6b","#e48a6a")+w+`<rect y="150" width="400" height="30" fill="#e9f3fa"/><rect y="178" width="400" height="62" fill="#2d5e85"/><path d="M0 195 Q100 188 200 196 T400 192" stroke="#ffcf5c" stroke-width="2" fill="none" opacity=".5"/>`+lamps+flakes(25,400,150)},
+road(){const g="g"+uid++;return sky(g,"#9cc9e6","#e6f3fb")+`<path d="M0 140 L80 70 L150 120 L240 40 L330 115 L400 80 L400 240 L0 240Z" fill="#b8d3e6"/><path d="M240 40 L222 62 L236 58 L246 70 L258 58Z M80 70 L66 86 L78 82 L88 92Z" fill="#fff"/><path d="M0 150 Q200 120 400 150 L400 240 L0 240Z" fill="#fff"/><path d="M170 240 L195 150 L205 150 L260 240Z" fill="#8aa3b8"/><path d="M200 160 L203 180 M204 195 L208 220" stroke="#fff" stroke-width="3"/>`+trees(14)+`<g transform="translate(150,185)"><rect x="0" y="0" width="80" height="34" rx="9" fill="#d9443b"/><rect x="8" y="5" width="22" height="13" rx="3" fill="#cfe7f6"/><rect x="34" y="5" width="22" height="13" rx="3" fill="#cfe7f6"/><rect x="60" y="5" width="14" height="13" rx="3" fill="#cfe7f6"/><circle cx="18" cy="35" r="7" fill="#222"/><circle cx="62" cy="35" r="7" fill="#222"/><rect x="5" y="-6" width="60" height="6" rx="2" fill="#fff"/></g>`+flakes(35,400,240)},
+tree(){const g="g"+uid++;return sky(g,"#14294a","#5b7fae")+stars(50)+`<circle cx="320" cy="50" r="18" fill="#fff8dc" opacity=".9"/><path d="M0 170 Q120 120 240 160 T400 150 L400 240 L0 240Z" fill="#e8f2fa"/><path d="M0 200 Q160 170 400 195 L400 240 L0 240Z" fill="#fff"/><g transform="translate(200,160)"><rect x="-3" y="-10" width="6" height="22" fill="#3b2a20"/><path d="M0 -78 L-30 -10 L30 -10Z" fill="#1f5a3e"/><path d="M0 -78 L-22 -36 L22 -36Z" fill="#2a7451"/><path d="M-20 -30 L20 -30 M-26 -16 L26 -16" stroke="#fff" stroke-width="3" opacity=".8"/></g>`+lights(18,105)+flakes(30,400,240)},
+pond(){const g="g"+uid++;let t="";for(let i=0;i<9;i++){const x=40+i*40,h=40+(i*17)%40;t+=`<path d="M${x} 170 L${x} ${170-h} M${x} ${180-h+10} L${x-8} ${170-h}" stroke="#d7e2ea" stroke-width="3"/>`}return sky(g,"#0e2440","#2f5c84")+stars(30)+`<ellipse cx="200" cy="190" rx="220" ry="45" fill="#35b8d6"/><ellipse cx="200" cy="190" rx="180" ry="30" fill="#5fd6ea" opacity=".6"/>`+t+lights(20,150)+flakes(25,400,240)},
+onsen(){const g="g"+uid++;let st="";for(let i=0;i<4;i++)st+=`<path d="M${150+i*30} 165 q-10 -20 0 -40 t0 -40" stroke="#fff" stroke-width="5" fill="none" opacity=".5" stroke-linecap="round"/>`;return sky(g,"#8fb6d6","#e7f1f8")+`<path d="M0 150 L120 40 L200 100 L270 30 L400 140 L400 240 L0 240Z" fill="#c9dbe8"/><path d="M120 40 L95 70 L110 66 L122 80 L140 64Z M270 30 L248 58 L262 54 L274 66 L290 52Z" fill="#fff"/><path d="M0 160 Q200 140 400 160 L400 240 L0 240Z" fill="#fff"/><ellipse cx="200" cy="195" rx="120" ry="28" fill="#6c8ea6"/><ellipse cx="200" cy="192" rx="105" ry="20" fill="#9cd3e3"/>`+[90,130,250,290,320].map(x=>`<ellipse cx="${x}" cy="${172+(x%3)*4}" rx="16" ry="9" fill="#8a8f96"/>`).join("")+st+flakes(30,400,240)},
+lake(){const g="g"+uid++;return sky(g,"#ffb37a","#5d7fb0")+`<circle cx="300" cy="105" r="22" fill="#ffd28a"/><path d="M40 130 L130 40 L220 130Z" fill="#7f97b5"/><path d="M130 40 L108 62 L122 58 L132 70 L148 56Z" fill="#fff"/><path d="M0 130 L400 130 L400 240 L0 240Z" fill="#3f6f9d"/><ellipse cx="230" cy="145" rx="40" ry="8" fill="#2c4f72"/><path d="M300 132 L300 220" stroke="#ffd28a" stroke-width="10" opacity=".25"/><path d="M0 205 Q200 190 400 210 L400 240 L0 240Z" fill="#f2f7fb"/>`+[30,60,340,370].map(x=>`<rect x="${x}" y="170" width="22" height="30" fill="#5c4a3d"/><path d="M${x-4} 172 L${x+11} 158 L${x+26} 172Z" fill="#fff"/><rect x="${x+7}" y="182" width="8" height="8" fill="#ffcf5c"/>`).join("")+flakes(20,400,240)},
+ski(){const g="g"+uid++;return sky(g,"#7fb7e3","#e3f1fb")+`<circle cx="70" cy="50" r="20" fill="#fff6c9"/><path d="M0 240 L0 120 L260 30 L400 90 L400 240Z" fill="#fff"/><path d="M260 30 L0 120" stroke="#dbe9f3" stroke-width="2"/><path d="M60 230 Q160 160 250 60" stroke="#e4eef6" stroke-width="18" fill="none"/>`+`<path d="M330 240 L230 40" stroke="#555" stroke-width="2"/>`+[0,1,2,3].map(i=>`<g transform="translate(${310-i*25},${200-i*50})"><path d="M0 0 L0 10" stroke="#555" stroke-width="2"/><rect x="-8" y="10" width="16" height="8" rx="2" fill="#d9443b"/></g>`).join("")+`<g transform="translate(150,150) rotate(-18)"><circle cx="0" cy="-26" r="6" fill="#f2c9a0"/><rect x="-5" y="-21" width="10" height="18" rx="3" fill="#d9443b"/><path d="M-4 -3 L-8 12 M4 -3 L8 12" stroke="#1d3b5c" stroke-width="4"/><path d="M-22 14 L22 14" stroke="#1d3b5c" stroke-width="3"/><path d="M-6 -16 L-16 6 M6 -16 L14 6" stroke="#555" stroke-width="1.5"/><rect x="-6" y="-34" width="12" height="5" rx="2" fill="#1f6fa8"/></g>`+trees(10)+flakes(25,400,240)},
+plane(){const g="g"+uid++;return sky(g,"#5aa3dc","#cfe8f8")+[[60,80,40],[250,60,50],[320,150,45],[90,170,55]].map(([x,y,r])=>`<g fill="#fff" opacity=".9"><circle cx="${x}" cy="${y}" r="${r*.5}"/><circle cx="${x+r*.5}" cy="${y-6}" r="${r*.6}"/><circle cx="${x+r}" cy="${y}" r="${r*.45}"/><rect x="${x}" y="${y}" width="${r}" height="${r*.45}"/></g>`).join("")+`<g transform="translate(200,120) rotate(-12)"><path d="M-90 0 Q-90 -12 -70 -12 L70 -12 Q95 -12 100 0 Q95 12 70 12 L-70 12 Q-90 12 -90 0Z" fill="#fff"/><path d="M-10 -10 L-40 -60 L-20 -60 L25 -10Z M-10 10 L-40 60 L-20 60 L25 10Z" fill="#e3edf5"/><path d="M-80 -10 L-95 -40 L-82 -40 L-62 -10Z" fill="#d9443b"/><path d="M-60 0 L70 0" stroke="#1f6fa8" stroke-width="5"/>${[0,1,2,3,4,5,6].map(i=>`<circle cx="${-50+i*16}" cy="-4" r="2.5" fill="#1d3b5c"/>`).join("")}</g>`},
+hell(){const g="g"+uid++;let st="";for(let i=0;i<6;i++)st+=`<path d="M${60+i*55} 175 q-12 -25 0 -50 t0 -50" stroke="#fff" stroke-width="7" fill="none" opacity=".45" stroke-linecap="round"/>`;return sky(g,"#a9c3d8","#eef4f8")+`<path d="M0 120 L90 60 L170 110 L260 50 L400 120 L400 240 L0 240Z" fill="#d9e5ee"/><path d="M0 150 Q100 120 200 160 T400 140 L400 240 L0 240Z" fill="#c98b5a"/><path d="M0 185 Q120 165 220 190 T400 180 L400 240 L0 240Z" fill="#a8683f"/><ellipse cx="210" cy="205" rx="60" ry="10" fill="#d9f1ec"/>`+st+`<path d="M0 230 L400 222" stroke="#6b4a3a" stroke-width="6"/>`+[30,110,190,270,350].map(x=>`<rect x="${x}" y="212" width="4" height="22" fill="#6b4a3a"/>`).join("")+flakes(20,400,240)},
+stayCity(){const g="g"+uid++;return `<svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">`+SCENES.city()+`</svg>`},
+stayCity2(){const g="g"+uid++;return `<svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">`+SCENES.plane()+`</svg>`},
+stayCabin(){const g="g"+uid++;return `<svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">`+sky(g,"#14294a","#4d74a3")+stars(40)+`<path d="M0 150 L120 70 L220 140 L330 60 L400 110 L400 240 L0 240Z" fill="#9bb7d0"/><path d="M0 175 Q200 150 400 175 L400 240 L0 240Z" fill="#fff"/><g transform="translate(140,110)"><rect x="0" y="40" width="120" height="70" fill="#7a5640"/><path d="M-14 46 L60 -6 L134 46Z" fill="#fff"/><path d="M-10 46 L60 0 L130 46" stroke="#e1ecf4" stroke-width="5" fill="none"/><rect x="18" y="60" width="26" height="22" fill="#ffcf5c"/><rect x="76" y="60" width="26" height="22" fill="#ffcf5c"/><rect x="50" y="78" width="20" height="32" fill="#4a3426"/><rect x="92" y="8" width="12" height="24" fill="#5b4334"/></g>`+trees(10)+flakes(35,400,240)+`</svg>`},
+stayLake(){return `<svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">`+SCENES.lake()+`</svg>`}
+};
+function trees(n){let s="";for(let i=0;i<n;i++){const x=(i*61+15)%400,y=165+(i*29)%50,h=22+(i%3)*8;s+=`<path d="M${x} ${y-h} L${x-h*.4} ${y} L${x+h*.4} ${y}Z" fill="#2c5f4a"/><path d="M${x} ${y-h} L${x-h*.2} ${y-h*.5} L${x+h*.2} ${y-h*.5}Z" fill="#fff"/>`}return s}
+function lights(n,y){let s=`<path d="M0 ${y} Q100 ${y+14} 200 ${y} T400 ${y}" stroke="#2a3b4d" stroke-width="1" fill="none"/>`;const cs=["#ffcf5c","#ff7a6e","#7cc3e8","#9be59b"];for(let i=0;i<n;i++){const x=i*(400/n)+6,yy=y+Math.sin(i/n*Math.PI*2)*6+6;s+=`<circle cx="${x}" cy="${yy}" r="3" fill="${cs[i%4]}"/><circle cx="${x}" cy="${yy}" r="7" fill="${cs[i%4]}" opacity=".25"/>`}return s}
+function sceneSVG(name){return `<svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">${SCENES[name]()}</svg>`}
+
+function dl_(h){if(h<1)return "10 min";const H=Math.floor(h),M=Math.round((h-H)*60);return M?`${H} hr ${M} min`:`${H} hr`}
+/* ---------- glance table ---------- */
+const tb=document.querySelector("#glanceTable tbody");
+DAYS.forEach(d=>{const s=d.stay?STAYS[d.stay]:null;
+ tb.insertAdjacentHTML("beforeend",`<tr><td class="date"><span class="dot" style="background:${d.color}"></span>Nov ${d.d}<small>${d.dow}</small></td><td><b>${d.where}</b></td><td>${d.short}</td><td>${s?`${s.name}<br><span class="st ${s.status}">${s.statusText}</span>`:"✈️ Fly home"}</td></tr>`)});
+
+/* ---------- day cards ---------- */
+const dl=document.getElementById("dayList");
+DAYS.forEach(d=>{const s=d.stay?STAYS[d.stay]:null;
+ dl.insertAdjacentHTML("beforeend",`<article class="day" id="nov${d.d}">
+  <div class="art">${sceneSVG(d.scene)}<div class="badge"><small>${d.dow}</small><b>${d.d}</b><small style="color:var(--muted)">Nov</small></div></div>
+  <div class="body"><div class="where" style="color:${d.color}">${d.where}</div><h3>${d.title}</h3>
+   <ol class="stops">${d.stops.map(x=>`<li><div class="tm">${x.t}</div><div class="sc"><b>${x.title}</b>${x.info?`<p>${x.info}</p>`:""}${x.how?`<p class="how">${x.how}</p>`:""}<div class="btns">${x.place?`<a href="${gq(x.place)}" target="_blank" rel="noopener">📍 Map</a>`:""}${x.dir?`<a href="${gd(x.dir)}" target="_blank" rel="noopener">🧭 Directions</a>`:""}</div></div></li>`).join("")}</ol>
+   ${d.note?`<div class="note">💡 ${d.note}</div>`:""}
+   <div class="meta">${s?`<span class="pill stay">🏠 ${s.name}</span>`:""}${d.drive?`<span class="pill">🚐 ~${dl_(d.drive)} driving</span>`:`<span class="pill">🚆 Train day</span>`}<a class="pill map" href="${d.map}" target="_blank" rel="noopener">Whole day in Google Maps ↗</a></div>
+  </div></article>`)});
+
+/* ---------- stays ---------- */
+const sl=document.getElementById("stayList");
+Object.values(STAYS).forEach(s=>{const art=SCENES[s.scene]();
+ sl.insertAdjacentHTML("beforeend",`<div class="stay-card">${art}<div class="in"><div class="nights">${s.nights}</div><h3>${s.name}</h3><p>📍 ${s.area}</p><p>${s.detail}</p><span class="st ${s.status}" style="align-self:flex-start">${s.statusText}</span>${s.price?`<div class="price">${s.price}</div>`:""}${s.link?`<a class="btn" href="${s.link}" target="_blank" rel="noopener">View on Airbnb ↗</a>`:""}</div></div>`)});
+
+/* ---------- map ---------- */
+const W=640,H=480,lon0=140.25,lon1=143.35,lat0=42.3,lat1=44.05;
+const P=(lon,lat)=>[ (lon-lon0)/(lon1-lon0)*(W-40)+20, (lat1-lat)/(lat1-lat0)*(H-40)+20 ];
+const outline=[[141.94,45.52],[141.67,45.40],[141.75,44.88],[141.64,43.94],[141.52,43.85],[141.32,43.24],[141.0,43.2],[140.47,43.37],[140.5,42.98],[139.85,42.45],[140.12,41.87],[140.1,41.43],[140.73,41.77],[141.15,41.81],[140.58,42.1],[140.97,42.32],[141.6,42.63],[142.3,42.43],[142.77,42.16],[143.25,41.92],[143.33,42.29],[143.6,42.6],[144.38,42.98],[145.0,42.98],[145.58,43.33],[145.2,43.6],[145.33,44.35],[144.98,44.07],[144.27,44.02],[143.35,44.35],[142.58,44.94],[142.2,45.25]];
+const pts={Sapporo:[141.35,43.06],Otaru:[141.0,43.19],"New Chitose":[141.68,42.78],Furano:[142.38,43.34],Biei:[142.47,43.59],"Blue Pond":[142.61,43.49],Asahikawa:[142.36,43.77],Tokachidake:[142.68,43.42],Noboribetsu:[141.10,42.45],Chitose:[141.65,42.83]};
+const legs=[
+ {c:COLORS.train,label:"Nov 23–24 · Train: Airport → Sapporo → Otaru",p:["New Chitose","Sapporo","Otaru"],dash:true},
+ {c:COLORS.d25,label:"Nov 25 · Airport → Furano",p:["New Chitose","Furano"]},
+ {c:COLORS.d26,label:"Nov 26 · Biei & Blue Pond loop",p:["Furano","Biei","Blue Pond","Furano"]},
+ {c:COLORS.d27,label:"Nov 27 · Tokachidake & Asahikawa",p:["Furano","Tokachidake","Asahikawa","Furano"]},
+ {c:COLORS.d28,label:"Nov 28 · Furano → Noboribetsu",p:["Furano","Chitose","Noboribetsu"]},
+ {c:COLORS.d29,label:"Nov 29 · Noboribetsu → Chitose",p:["Noboribetsu","Chitose"]},
+ {c:COLORS.d30,label:"Nov 30 · Chitose → Airport",p:["Chitose","New Chitose"]}
+];
+let m=`<defs><pattern id="wave" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 6 Q6 0 12 6 T24 6" stroke="#bcdcf0" fill="none"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#wave)" opacity=".7"/>`;
+m+=`<path d="M${outline.map(o=>P(...o).join(" ")).join(" L")}Z" fill="#ffffff" stroke="#8fb8d4" stroke-width="2"/>`;
+// mountains decoration
+[[142.85,43.62],[142.62,43.32],[140.82,42.83],[143.0,43.85],[141.1,42.9]].forEach(o=>{const [x,y]=P(...o);m+=`<path d="M${x-14} ${y+8} L${x} ${y-12} L${x+14} ${y+8}Z" fill="#dbe8f2"/><path d="M${x-5} ${y-4} L${x} ${y-12} L${x+5} ${y-4}Z" fill="#9fbad0"/>`});
+
+legs.forEach((l,i)=>{const pp=l.p.map(n=>P(...pts[n]));const off=(i%3-1)*3;let d=`M${pp[0][0]+off} ${pp[0][1]+off}`;for(let k=1;k<pp.length;k++){const [x0,y0]=pp[k-1],[x1,y1]=pp[k];const mx=(x0+x1)/2+(y1-y0)*.12,my=(y0+y1)/2-(x1-x0)*.12;d+=` Q${mx+off} ${my+off} ${x1+off} ${y1+off}`}
+ m+=`<path d="${d}" fill="none" stroke="${l.c}" stroke-width="4" stroke-linecap="round" ${l.dash?'stroke-dasharray="2 8"':""} opacity=".9"/>`});
+const labelPos={Sapporo:[10,-10,"start"],Otaru:[-12,-8,"end"],"New Chitose":[12,16,"start"],Furano:[-12,14,"end"],Biei:[-12,-4,"end"],"Blue Pond":[12,0,"start"],Asahikawa:[12,-6,"start"],Tokachidake:[12,14,"start"],Noboribetsu:[-12,16,"end"],Chitose:[12,-4,"start"]};
+Object.entries(pts).forEach(([n,o])=>{const [x,y]=P(...o);const [dx,dy,a]=labelPos[n];m+=`<circle cx="${x}" cy="${y}" r="6" fill="#fff" stroke="#0d2238" stroke-width="2.5"/><text x="${x+dx}" y="${y+dy}" text-anchor="${a}" font-family="Inter" font-size="13" font-weight="700" fill="#0d2238" paint-order="stroke" stroke="#fff" stroke-width="4">${n}</text>`});
+const [ax,ay]=P(141.68,42.78);m+=`<text x="${ax}" y="${ay+5}" text-anchor="middle" font-size="9">✈</text>`;
+m+=`<text x="${W-30}" y="${H-24}" text-anchor="end" font-family="Fraunces" font-size="22" font-weight="800" fill="#8fb8d4">HOKKAIDO</text>`;
+m+=`<g transform="translate(40,${H-60})"><circle r="18" fill="#fff" stroke="#8fb8d4"/><path d="M0 -14 L5 0 L0 -3 L-5 0Z" fill="#d9443b"/><text y="-20" text-anchor="middle" font-size="10" font-weight="700" fill="#5d7085">N</text></g>`;
+document.getElementById("map").innerHTML=m;
+document.getElementById("legend").innerHTML=legs.map(l=>`<li><span class="sw" style="background:${l.c}"></span>${l.label}</li>`).join("");
+const maxD=4;document.getElementById("drivebars").innerHTML=DAYS.filter(d=>d.drive).map(d=>`<div class="bar"><span>Nov ${d.d}</span><i style="width:${d.drive/maxD*70}%;background:${d.color}"></i><span>${dl_(d.drive)}</span></div>`).join("");
+
+/* ---------- countdown ---------- */
+function tick(){const t=new Date("2026-11-23T06:35:00+08:00")-new Date();const el=document.getElementById("countdown");
+ if(t<=0){el.innerHTML=`<div class="cd"><b>✈️</b><small>We're off!</small></div>`;return}
+ const d=Math.floor(t/864e5),h=Math.floor(t/36e5)%24,mi=Math.floor(t/6e4)%60;
+ el.innerHTML=[[d,"days"],[h,"hours"],[mi,"mins"]].map(([v,l])=>`<div class="cd"><b>${v}</b><small>${l}</small></div>`).join("")+`<div class="cd" style="text-align:left;min-width:auto"><small>until</small><b style="font-size:16px;margin-top:4px">PR406 takes off</b></div>`}
+tick();setInterval(tick,30000);
+
+/* ---------- falling snow ---------- */
+const cv=document.getElementById("snow"),cx=cv.getContext("2d");let fl=[];
+function rs(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight;fl=Array.from({length:Math.min(160,cv.width/8)},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2.4+.6,s:Math.random()*.7+.3,w:Math.random()*Math.PI*2}))}
+rs();addEventListener("resize",rs);
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+(function loop(){cx.clearRect(0,0,cv.width,cv.height);cx.fillStyle="rgba(255,255,255,.85)";fl.forEach(f=>{if(!still){f.y+=f.s;f.w+=.01;f.x+=Math.sin(f.w)*.4;if(f.y>cv.height){f.y=-5;f.x=Math.random()*cv.width}}cx.beginPath();cx.arc(f.x,f.y,f.r,0,7);cx.fill()});if(!still)requestAnimationFrame(loop)})();
+</script>
+</body>
+</html>
